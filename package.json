@@ -1,6 +1,6 @@
 {
   "name": "@marekdano/use-quote",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "a custom React hook that provides a random quote from QuoteGarden",
   "author": "marekdano",
   "license": "MIT",
