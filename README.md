@@ -1,6 +1,6 @@
 # @marekdano/use-quote
 
-> a custom React hook that provides a random quote from QuoteGarden
+> A custom React hook that provides a random quote from QuoteGarden
 
 [![NPM](https://img.shields.io/npm/v/@marekdano/use-quote.svg)](https://www.npmjs.com/package/@marekdano/use-quote) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -9,19 +9,36 @@
 ```bash
 npm install --save @marekdano/use-quote
 ```
+OR
+
+```bash
+yarn add @marekdano/use-quote
+```
 
 ## Usage
 
 ```jsx
 import React, { Component } from 'react'
 
-import { useMyHook } from '@marekdano/use-quote'
+import { useQuote } from '@marekdano/use-quote'
 
 const Example = () => {
-  const example = useMyHook()
-  return (
-    <div>{example}</div>
-  )
+  const { quote, isLoading, isError } = useQuote()
+  
+  if (isLoading) return <p>Loading...</p>
+
+  if (quote) {
+    return (
+      <>
+        <p>{quote.text}</p>
+        <p><i>{quote.author}</i></p>
+      </>
+    )
+  }
+
+  if (isError) return <p>Difficulty displaying a quote at the moment.</p>
+
+  return null
 }
 ```
 
